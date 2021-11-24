@@ -1,15 +1,32 @@
+// export function campoRequerido(input) {
+//     // console.log('Desde la funcion campo requerido');
+//     if (input.value.trim().lenght > 0) {
+//         //console.log('aqui esta todo ok');
+//         input.className = 'form-control is-valid';
+//         return true;
+//     } else {
+//         //console.log('aqui esta todo mal');
+//         input.className = 'form-control is-invalid';
+//         return false;
+//     }
+// }
+//funcion copiada de alan----------------------------
 export function campoRequerido(input) {
-    // console.log('Desde la funcion campo requerido');
-    if (input.value.length > 0) {
-        //console.log('aqui esta todo ok');
-        input.className = 'form-control is-valid';
-        return true;
+    //console.log('Desde la funcion campo requerido')
+    if (input.value.trim().length > 0) {
+      //la funcion trim elimina un espacio vacio solanente al inicio
+      //console.log('aqui esta todo bien');
+      input.className = "form-control is-valid";
+      return true;
     } else {
-        //console.log('aqui esta todo mal');
-        input.className = 'form-control is-invalid';
-        return false
+      //console.log('aqui muestro un error');
+      input.className = "form-control is-invalid";
+      return false;
     }
-}
+
+
+  }
+  //--------------------------------------
 
  export function validarNumeros(input) {
     // crear expresion regular
@@ -42,15 +59,14 @@ export function validarURL(input) {
         return false
     }
 }
-
-export function validarGeneral(campoCodigo,campoProducto,campoDescripcion,campoCantidad,campoURL) {
+//se modifico quitando campoCodigo
+export function validarGeneral(campoProducto,campoDescripcion,campoCantidad,campoURL) {
     //prevenir el actualizar del submit
     console.log('desde la funcoin validar general');
 
     let alerta = document.getElementById('msj');
 
-    if (campoRequerido(campoCodigo) &&
-        campoRequerido(campoProducto) &&
+    if (campoRequerido(campoProducto) &&
         campoRequerido(campoDescripcion) &&
         validarNumeros(campoCantidad) &&
         validarURL(campoURL)
